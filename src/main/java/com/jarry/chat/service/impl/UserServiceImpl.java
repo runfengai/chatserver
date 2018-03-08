@@ -40,6 +40,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessageData register(UserInfo userInfo) {
+        UserInfo user = userInfoMapper.checkAccount(userInfo.getPhone());
+        if (user != null)
+            return new MessageData(Constant.MSG_LOGIN_ERROR_USER_EXIST, Constant.CODE_LOGIN_ERROR_USER_EXIST, user);
+
         if (StringUtils.isNullOrEmpty(userInfo.getPassword()))
             userInfo.setPassword("123456");
         int result = userInfoMapper.register(userInfo);

@@ -1,5 +1,7 @@
 package com.jarry.chat.model;
 
+import com.jarry.chat.util.Constant;
+
 import java.io.Serializable;
 
 /**
@@ -28,6 +30,10 @@ public class MessageData implements Serializable {
     //
     public static MessageData createErrorMsg() {
         return new MessageData();
+    }
+
+    public static MessageData createDefErrorMsg() {
+        return new MessageData(Constant.MSG_ERROR, Constant.CODE_ERROR);
     }
 
     public String getMessage() {
