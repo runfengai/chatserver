@@ -14,6 +14,8 @@ public class ErrorMap {
 
     static {
         errorMap.put(Constant.CODE_ERROR, Constant.MSG_ERROR);
+        errorMap.put(Constant.CODE_REGISTER_PHONE_NULL, "手机号为空");
+        errorMap.put(Constant.CODE_LOGIN_ERROR_PWD_NULL, "密码为空");
 
     }
 

@@ -14,9 +14,9 @@ import java.util.List;
  */
 @Mapper
 public interface UserInfoMapper {
-    UserInfo login(@Param("account") String account, @Param("password") String password);
+    List<UserInfo> login(@Param("account") String account, @Param("password") String password);
 
-    UserInfo checkAccount(@Param("account") String account);
+    List<UserInfo> checkAccount(@Param("account") String account);
 
     int register(@Param("userInfo") UserInfo userInfo);
 }

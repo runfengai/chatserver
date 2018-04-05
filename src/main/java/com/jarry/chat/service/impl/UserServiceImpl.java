@@ -27,12 +27,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessageData login(String account, String password) {
-        UserInfo user = userInfoMapper.checkAccount(account);
-        if (user == null)
+        List<UserInfo> user = userInfoMapper.checkAccount(account);
+        if (user == null || user.size() == 0)
             return new MessageData(Constant.MSG_LOGIN_ERROR_USER_NULL, Constant.CODE_LOGIN_ERROR_USER_NULL, user);
 
-        UserInfo userInfo = userInfoMapper.login(account, password);
-        if (userInfo != null) return new MessageData(Constant.MSG_LOGIN_ERROR_USER, Constant.CODE_SUCCESS, userInfo);
+        List<UserInfo> userInfo = userInfoMapper.login(account, password);
+        if (userInfo != null && userInfo.size() > 0)
+            return new MessageData(Constant.MSG_LOGIN_SUCCESS, Constant.CODE_SUCCESS, userInfo.get(0));
         return new MessageData(Constant.MSG_LOGIN_ERROR_USER, Constant.CODE_ERROR, userInfo);
 
 
@@ -40,9 +41,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MessageData register(UserInfo userInfo) {
-        UserInfo user = userInfoMapper.checkAccount(userInfo.getPhone());
-        if (user != null)
-            return new MessageData(Constant.MSG_LOGIN_ERROR_USER_EXIST, Constant.CODE_LOGIN_ERROR_USER_EXIST, user);
+        List<UserInfo> user = userInfoMapper.checkAccount(userInfo.getPhone());
+        if (user != null && user.size() > 0)
+            return new MessageData(Constant.MSG_LOGIN_ERROR_USER_EXIST, Constant.CODE_LOGIN_ERROR_USER_EXIST, null);
 
         if (StringUtils.isNullOrEmpty(userInfo.getPassword()))
             userInfo.setPassword("123456");

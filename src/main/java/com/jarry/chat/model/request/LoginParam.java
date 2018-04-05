@@ -7,15 +7,15 @@ package com.jarry.chat.model.request;
  * Time: 17:26
  */
 public class LoginParam {
-    private String userName;
+    private String phone;
     private String password;
 
-    public String getUserName() {
-        return userName;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhone(String userName) {
+        this.phone = userName;
     }
 
     public String getPassword() {

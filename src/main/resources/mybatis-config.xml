@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
     <settings>
-        <setting name="logImpl" value="LOG4J"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
         <!--user_name之类的自动映射到userName-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
@@ -25,6 +25,6 @@
     </environments>
 
     <mappers>
-        <mapper resource=""></mapper>
+        <mapper resource="UserInfoMapper.xml"></mapper>
     </mappers>
 </configuration>

@@ -21,6 +21,7 @@ public class Constant {
     public static final String CODE_LOGIN_ERROR_USER_NULL = "1001";//用户名不存在
     public static final String CODE_LOGIN_ERROR_USER_EXIST = "1002";//用户已注册
     public static final String CODE_LOGIN_ERROR_PWD = "1002";//密码错误
+    public static final String CODE_LOGIN_ERROR_PWD_NULL = "1003";//密码为空
     public static final String CODE_LOGIN_FORBIDDEN = "-1000";//权限被禁止
     public static final String MSG_LOGIN_SUCCESS = "登录成功";//登录成功
     public static final String MSG_LOGIN_ERROR_USER = "用户名或密码错误";//用户名错误

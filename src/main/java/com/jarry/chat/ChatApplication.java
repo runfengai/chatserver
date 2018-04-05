@@ -31,8 +31,8 @@ public class ChatApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        UserInfo userInfo = userInfoMapper.login("18811730078", "123456");
+//        UserInfo userInfo = userInfoMapper.login("18811730078", "123456");
+//        System.out.print(userInfo.getUserName());
         System.out.print("======================================");
-        System.out.print(userInfo.getUserName());
     }
 }

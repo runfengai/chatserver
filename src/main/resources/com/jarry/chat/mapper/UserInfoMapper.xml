@@ -23,8 +23,8 @@
         FROM user
         WHERE phone=#{account} and password=#{password}
     </select>
-    <select id="checkAccount" resultType="com.jarry.chat.model.response.UserInfo">
-        SELECT user_id
+    <select id="checkAccount" resultMap="userMap">
+        SELECT *
         FROM user
         WHERE phone=#{account}
     </select>
