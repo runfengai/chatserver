@@ -19,4 +19,8 @@ public interface UserInfoMapper {
     List<UserInfo> checkAccount(@Param("account") String account);
 
     int register(@Param("userInfo") UserInfo userInfo);
+
+    List<UserInfo> getUserInfoById(@Param("userId") String userId);
+
+    List<UserInfo> getUserInfoByPhone(@Param("phone") String phone);
 }

@@ -54,4 +54,22 @@ public class UserServiceImpl implements UserService {
             return new MessageData(Constant.MSG_REGISTER_ERROR, Constant.CODE_REGISTER_ERROR, null);
         }
     }
+
+    @Override
+    public MessageData userInfoById(String userId) {
+        List<UserInfo> users = userInfoMapper.getUserInfoById(userId);
+        if (users == null || users.size() == 0)
+            return new MessageData(Constant.CODE_USER_NOT_EXIST, Constant.CODE_USER_NOT_EXIST, users);
+        UserInfo userInfo = users.get(0);
+        return MessageData.createSuccessMsg(userInfo);
+    }
+
+    @Override
+    public MessageData userInfoByPhone(String phone) {
+        List<UserInfo> users = userInfoMapper.getUserInfoByPhone(phone);
+        if (users == null || users.size() == 0)
+            return new MessageData(Constant.CODE_USER_NOT_EXIST, Constant.CODE_USER_NOT_EXIST, users);
+        UserInfo userInfo = users.get(0);
+        return MessageData.createSuccessMsg(userInfo);
+    }
 }

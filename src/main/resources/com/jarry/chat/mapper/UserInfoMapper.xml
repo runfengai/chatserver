@@ -34,4 +34,14 @@
         values
         (#{userInfo.userId},#{userInfo.userName},#{userInfo.phone},#{userInfo.avatar},#{userInfo.gender})
     </insert>
+    <select id="getUserInfoById" resultMap="userMap">
+        SELECT user_id,user_name,phone,avatar,gender
+        FROM user
+        WHERE user_id=#{userId}
+    </select>
+    <select id="getUserInfoByPhone" resultMap="userMap">
+        SELECT user_id,user_name,phone,avatar,gender
+        FROM user
+        WHERE phone=#{phone}
+    </select>
 </mapper>

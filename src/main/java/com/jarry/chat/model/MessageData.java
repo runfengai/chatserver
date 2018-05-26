@@ -27,6 +27,26 @@ public class MessageData implements Serializable {
 
     }
 
+    /**
+     * 创建默认的成功信息
+     *
+     * @param data
+     * @return
+     */
+    public static MessageData createSuccessMsg(String msg, Object data) {
+        return new MessageData(msg, Constant.CODE_LOGIN_ERROR_USER_NULL, data);
+    }
+
+    /**
+     * 创建默认的成功信息
+     *
+     * @param data
+     * @return
+     */
+    public static MessageData createSuccessMsg(Object data) {
+        return new MessageData(Constant.MSG_SUCCESS, Constant.CODE_SUCCESS, data);
+    }
+
     //
     public static MessageData createErrorMsg() {
         return new MessageData();

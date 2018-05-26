@@ -17,6 +17,7 @@ import java.util.UUID;
  * 用户登录
  */
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -43,5 +44,20 @@ public class UserController {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         userInfo.setUserId(uuid);
         return userInfoService.register(userInfo);
+    }
+
+    @RequestMapping(value = "/info")
+    MessageData userInfo(UserInfo param) {
+        if (param == null) return new MessageData(Constant.MSG_PARAM_NULL, Constant.CODE_PARAM_NULL);
+        String userId = param.getUserId();
+        String phone = param.getPhone();
+
+        if (!StringUtils.isNullOrEmpty(userId)) {//根据userId查询用户
+            return userInfoService.userInfoById(userId);
+        }
+        if (!StringUtils.isNullOrEmpty(phone)) {//根据手机号查询用户
+            return userInfoService.userInfoByPhone(phone);
+        }
+        return new MessageData(Constant.CODE_USER_INFO_NULL, ErrorMap.getErrorStr(Constant.CODE_USER_INFO_NULL));
     }
 }

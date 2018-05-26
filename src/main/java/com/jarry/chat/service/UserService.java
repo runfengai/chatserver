@@ -15,4 +15,8 @@ public interface UserService {
     MessageData login(String account, String password);
 
     MessageData register(UserInfo userInfo);
+
+    MessageData userInfoById(String userId);
+
+    MessageData userInfoByPhone(String phone);
 }
